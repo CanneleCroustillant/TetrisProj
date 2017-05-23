@@ -8,10 +8,10 @@
 <title>Bienvenue sur TetrisGame</title>
 </head>
 <body>
-	<h1>Tetris - Bienvenu</h1>
-	<h2>Bienvenue ${param.username} !</h2>
-	<form action="logout" method="POST">
-		<input type="submit" name="se déconnecter">
-	</form>
+<h1> Tetris - Bienvenu</h1>
+<h2>Bienvenue ${param.username} !</h2>
+<form action="logout" method="POST" >
+<input type="submit" value="se dï¿½connecter">
+</form>
 </body>
 </html>
