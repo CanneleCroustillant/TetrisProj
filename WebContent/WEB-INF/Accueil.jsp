@@ -11,7 +11,7 @@
 <h1> Tetris - Bienvenu</h1>
 <h2>Bienvenue ${param.username} !</h2>
 <form action="logout" method="POST" >
-<input type="submit" name="se déconnecter">
+<input type="submit" value="se déconnecter">
 </form>
 </body>
 </html>
