@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class HomeServlet
  */
 @WebServlet("/home")
-public class HomeServlet extends HttpServlet
+public class LoginServlet extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
 
@@ -21,7 +21,14 @@ public class HomeServlet extends HttpServlet
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		this.getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+		if ( request.getAttribute("username") == null )
+		{
+			this.getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+		}
+		else
+		{
+			this.getServletContext().getRequestDispatcher("/WEB-INF/accueil.jsp").forward(request, response);
+		}
 	}
 
 	/**
@@ -36,7 +43,6 @@ public class HomeServlet extends HttpServlet
 		if (username == "user" && password == "pass")
 		{
 			request.setAttribute("username", username);
-			this.getServletContext().getRequestDispatcher("/WEB-INF/accueil.jsp").forward(request, response);
 		}
 		
 		doGet(request, response);
