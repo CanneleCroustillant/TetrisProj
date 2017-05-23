@@ -21,7 +21,7 @@ public class HomeServlet extends HttpServlet
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		this.getServletContext().getRequestDispatcher("/WEB-INF/welcome.jsp").forward(request, response);
+		this.getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
 	}
 
 	/**
@@ -33,6 +33,11 @@ public class HomeServlet extends HttpServlet
 		String username = (String) request.getParameter("username");
 		String password = (String) request.getParameter("password");
 		
+		if (username == "user" && password == "pass")
+		{
+			request.setAttribute("username", username);
+			this.getServletContext().getRequestDispatcher("/WEB-INF/accueil.jsp").forward(request, response);
+		}
 		
 		doGet(request, response);
 	}
