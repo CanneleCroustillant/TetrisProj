@@ -21,17 +21,6 @@ public class LoginServlet extends HttpServlet
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		String username = (String) request.getAttribute("username");
-		
-		if ( username != null )
-		{
-			request.getSession().setAttribute("username", username);
-			this.getServletContext().getRequestDispatcher("/WEB-INF/accueil.jsp").forward(request, response);
-		}
-		else
-		{			
-			this.getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
-		}
 	}
 
 	/**
