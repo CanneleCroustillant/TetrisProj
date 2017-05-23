@@ -16,25 +16,16 @@ public class HomeServlet extends HttpServlet
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
-	public HomeServlet()
-	{
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
+
 		String username = (String) request.getSession().getAttribute("username");
 
 		if (username != null)
 		{
-			request.getSession().setAttribute("username", username);
 			this.getServletContext().getRequestDispatcher("/WEB-INF/accueil.jsp").forward(request, response);
 		} else
 		{
@@ -48,7 +39,7 @@ public class HomeServlet extends HttpServlet
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		doGet(request, response);
+
 	}
 
 }
