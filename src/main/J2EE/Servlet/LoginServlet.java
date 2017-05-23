@@ -21,8 +21,11 @@ public class LoginServlet extends HttpServlet
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		if ( request.getAttribute("username") != null )
+		String username = (String) request.getAttribute("username");
+		
+		if ( username != null )
 		{
+			request.getSession().setAttribute("username", username);
 			this.getServletContext().getRequestDispatcher("/WEB-INF/accueil.jsp").forward(request, response);
 		}
 		else
@@ -40,12 +43,14 @@ public class LoginServlet extends HttpServlet
 		String username = (String) request.getParameter("username");
 		String password = (String) request.getParameter("password");
 		
-		if (username == "user" && password == "pass")
+		if ( username.equals("user") && password.equals("pass"))
 		{
-			request.setAttribute("username", username);
+			request.getSession().setAttribute("username", username);
+			this.getServletContext().getRequestDispatcher("/WEB-INF/accueil.jsp").forward(request, response);
 		}
-		
-		doGet(request, response);
+		else
+		{
+			this.getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
+		}
 	}
-
 }

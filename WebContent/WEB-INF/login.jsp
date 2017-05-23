@@ -10,8 +10,8 @@
 
 	<form method="POST" action="login">
 		votre nom : <input type="text" id="username" name="username" />
-		votre mot de pass : <input type="text" id="password"
-			name="password" /> <input type="submit" value="OK !" />
+		votre mot de pass : <input type="text" id="password" name="password" />
+		<input type="submit" value="OK !" />
 	</form>
 
 </body>
