@@ -9,7 +9,10 @@
 </head>
 <body>
 <h1> Tetris - Bienvenu</h1>
-<li><a href="accueil.jsp">Accueil</a></li>
+<ul>
+<li><a href="/TetrisProj/home">Accueil</a></li>
+<li><a href="tetrimino.jsp">Tetriminos</a></li>
+</ul>
 <h2>Bienvenue ${param.username} !</h2>
 <form action="logout" method="POST" >
 <input type="submit" value="se deconnecter">
