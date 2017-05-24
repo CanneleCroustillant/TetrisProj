@@ -24,15 +24,8 @@ public class TetriminoCreateServlet extends HttpServlet
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
-	{		
-		String nom = request.getParameter("nom");
-		String couleur = request.getParameter("couleur");
-		
-		Tetrimino t = new Tetrimino(nom, couleur);
-		
-		@SuppressWarnings("unchecked")
-		HashMap<String, Tetrimino> listeTetrimino = (HashMap<String, Tetrimino>) request.getServletContext().getAttribute("listeTetrimino");
-		listeTetrimino.put(t.getId(), t);
+	{
+
 	}
 
 	/**
@@ -41,8 +34,15 @@ public class TetriminoCreateServlet extends HttpServlet
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String nom = request.getParameter("nom");
+		String couleur = request.getParameter("couleur");
+
+		Tetrimino t = new Tetrimino(nom, couleur);
+
+		@SuppressWarnings("unchecked")
+		HashMap<String, Tetrimino> listeTetrimino = (HashMap<String, Tetrimino>) request.getServletContext()
+				.getAttribute("listeTetrimino");
+		listeTetrimino.put(t.getId(), t);
 	}
 
 }
