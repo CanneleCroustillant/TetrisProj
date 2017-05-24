@@ -11,7 +11,7 @@
 <h1> Tetris - Bienvenu</h1>
 <ul>
 <li><a href="/TetrisProj/home">Accueil</a></li>
-<li><a href="tetrimino.jsp">Tetriminos</a></li>
+<li><a href="/TetrisProj/tetrimino">Tetriminos</a></li>
 </ul>
 <h2>Bienvenue ${param.username} !</h2>
 <form action="logout" method="POST" >
