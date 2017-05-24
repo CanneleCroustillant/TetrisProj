@@ -38,17 +38,25 @@ public class TetriminoUpdateServlet extends HttpServlet
 		String couleur = (String) request.getAttribute("couleur");
 		String id = (String) request.getAttribute("id");
 
-		@SuppressWarnings("unchecked")
-		HashMap<String, Tetrimino> listeTetrimino = (HashMap<String, Tetrimino>) request.getServletContext()
-				.getAttribute("listeTetrimino");
+		if (nom != "nom" && couleur != " couleur")
+		{
+			@SuppressWarnings("unchecked")
+			HashMap<String, Tetrimino> listeTetrimino = (HashMap<String, Tetrimino>) request.getServletContext()
+					.getAttribute("listeTetrimino");
 
-		Tetrimino t = listeTetrimino.get(id);
-		t.setColor(couleur);
-		t.setName(nom);
+			Tetrimino t = listeTetrimino.get(id);
+			t.setColor(couleur);
+			t.setName(nom);
 
-		listeTetrimino.put(id, t);
+			listeTetrimino.put(id, t);
 
-		request.getServletContext().setAttribute("listeTetrimino", listeTetrimino);
+			request.getServletContext().setAttribute("listeTetrimino", listeTetrimino);
+			this.getServletContext().getRequestDispatcher("/WEB-INF/tetrimino.jsp").forward(request, response);
+		}
+		else
+		{
+			this.getServletContext().getRequestDispatcher("/WEB-INF/tetriminoCreate.jsp").forward(request, response);
+		}
 	}
 
 }
