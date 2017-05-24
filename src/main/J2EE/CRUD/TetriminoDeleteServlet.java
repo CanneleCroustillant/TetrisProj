@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import Object.Tetrimino;
 
 /**
- * Servlet implementation class TetriminoCreateServlet
+ * Servlet implementation class TetriminoDeleteServlet
  */
-@WebServlet("/TetriminoCreateServlet")
-public class TetriminoCreateServlet extends HttpServlet
+@WebServlet("/TetriminoDeleteServlet")
+public class TetriminoDeleteServlet extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
 
@@ -25,17 +25,15 @@ public class TetriminoCreateServlet extends HttpServlet
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		Tetrimino t = new Tetrimino("nom", "couleur");
-
+		String id = request.getParameter("id");
 		@SuppressWarnings("unchecked")
-		HashMap<String, Tetrimino> listeTetrimino = (HashMap<String, Tetrimino>) request.getServletContext()
-				.getAttribute("listeTetrimino");
-		listeTetrimino.put(t.getId(), t);
+		HashMap <String, Tetrimino> listeTetrimino = (HashMap<String, Tetrimino>) request.getServletContext().getAttribute("listeTetrimino");
 		
-		request.getServletContext().setAttribute("listeTetrimino", listeTetrimino);
+		listeTetrimino.remove(id);
 		
-		request.setAttribute("id", t.getId());
-		this.getServletContext().getRequestDispatcher("/WEB-INF/tetriminoCreate.jsp").forward(request, response);
+		request.getServletContext().setAttribute("listeTetrimmino", listeTetrimino);
+		
+		this.getServletContext().getRequestDispatcher("/WEB-INF/tetrimino.jsp").forward(request, response);
 	}
 
 	/**
@@ -44,7 +42,8 @@ public class TetriminoCreateServlet extends HttpServlet
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException
 	{
-		
+		// TODO Auto-generated method stub
+		doGet(request, response);
 	}
 
 }
