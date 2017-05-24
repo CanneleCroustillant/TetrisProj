@@ -48,6 +48,13 @@ public class Tetrimino
 		this.color = couleur;
 	}
 	
+	/**
+	 * @return the id
+	 */
+	public String getId()
+	{
+		return this.id;
+	}
 	
 
 }
